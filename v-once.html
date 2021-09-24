@@ -5,13 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diretivas: v-html</title>
+    <title>Diretivas: v-once</title>
 </head>
 
 <body>
     <div id="directives">
 
-        <div v-html="headerHTML"></div>
+      <h1>{{person.name}}</h1>
+      <div v-once>{{person.age}}</div>
 
     </div>
 
@@ -25,12 +26,10 @@
         let app = new Vue({
             el: '#directives',
             data: {
-                headerHTML: `
-              <header>
-                <h1 style="text-align: center;"> HCode Treinamentos</h1>
-                <img src="./assets/logo-hcode.svg" style="margin: auto 30%">
-                </header>
-                `
+                person: {
+                    name: 'Ronaldo Borges',
+                    age: 41
+                }
             }
 
         })

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estilos em linha - Objeto</title>
+
+</head>
+
+<body>
+    <div id="styles">
+        
+        <h2 :style="{ fontSize: fontSizeProp + 'px' }">Ronaldo Magalhães</h2>
+
+        <input type="text" placeholder="Digite o tamanho da fonte" v-model="fontSizeProp">
+
+        <hr>
+
+        <h2>Digite o valor de cada cor</h2>
+
+        <input type="text" placeholder="vermelho" v-model="styleRed">
+        <input type="text" placeholder="verde" v-model="styleGreen">
+        <input type="text" placeholder="azul" v-model="styleBlue">
+
+        <div :style="styleRgb">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur assumenda, eius tempora perferendis vero at natus doloribus velit minus possimus facere dignissimos, iste dolore mollitia autem saepe, adipisci ipsam eaque?Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident tempora consectetur perferendis. Nam, molestiae excepturi necessitatibus earum consequatur repellendus illo repellat cupiditate, et, possimus quasi distinctio cum tempora vero voluptate?</div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6"></script>
+
+    <script>
+
+        
+        let app = new Vue({
+            el: '#styles',
+            data: {
+               fontSizeProp : 20, 
+               styleRed: 255,
+               styleGreen: 105,
+               styleBlue: 80
+            },  
+            computed: {
+                styleRgb() {
+
+                    return {
+                         color: `rgb(${this.styleRed}, ${this.styleGreen}, ${this.styleBlue})`
+                    };
+
+                }
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>
